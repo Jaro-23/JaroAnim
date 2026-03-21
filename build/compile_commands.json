@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/robbe/dev/JaroAnim/build",
+  "command": "/usr/bin/c++  -I/home/robbe/dev/JaroAnim/examples/planets/headers -I/home/robbe/dev/JaroAnim/lib/headers -I/home/robbe/dev/JaroAnim/lib/includes/headers -I/include -std=gnu++23 -o CMakeFiles/planets.dir/examples/planets/src/main.cpp.o -c /home/robbe/dev/JaroAnim/examples/planets/src/main.cpp",
+  "file": "/home/robbe/dev/JaroAnim/examples/planets/src/main.cpp",
+  "output": "CMakeFiles/planets.dir/examples/planets/src/main.cpp.o"
+},
+{
+  "directory": "/home/robbe/dev/JaroAnim/build/lib",
+  "command": "/usr/bin/c++  -I/home/robbe/dev/JaroAnim/lib/headers -I/home/robbe/dev/JaroAnim/lib/includes/headers -I/include -std=gnu++23 -o CMakeFiles/JaroAnim.dir/src/path.cpp.o -c /home/robbe/dev/JaroAnim/lib/src/path.cpp",
+  "file": "/home/robbe/dev/JaroAnim/lib/src/path.cpp",
+  "output": "lib/CMakeFiles/JaroAnim.dir/src/path.cpp.o"
+}
+]

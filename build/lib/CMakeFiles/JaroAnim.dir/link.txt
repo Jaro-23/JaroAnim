@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/robbe/dev/JaroAnim/bin/lib/libJaroAnim.a CMakeFiles/JaroAnim.dir/src/path.cpp.o
+/usr/bin/ranlib /home/robbe/dev/JaroAnim/bin/lib/libJaroAnim.a
