@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/planets.dir/examples/planets/src/main.cpp.o -o /home/robbe/dev/JaroAnim/bin/planets  /home/robbe/dev/JaroAnim/bin/lib/libJaroAnim.a /home/robbe/dev/JaroAnim/lib/includes/libassimp.a /home/robbe/dev/JaroAnim/lib/includes/libglfw3.a /home/robbe/dev/JaroAnim/lib/includes/libglm.a /home/robbe/dev/JaroAnim/lib/includes/libJaroViewer.a 
