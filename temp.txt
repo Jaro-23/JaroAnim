@@ -1,0 +1,13 @@
+vec3 ffd(vec3 inVec) {
+  float xSize = getDataFromVector(modifierData, modifierIndex);
+  float ySize = getDataFromVector(modifierData, modifierIndex + 1);
+  float zSize = getDataFromVector(modifierData, modifierIndex + 2);
+  
+  modifierIndex = modifierIndex + 3;
+
+  // TODO: Apply ffd
+  
+  int pointCount = int(xSize) * int(ySize) * int(zSize);
+  modifierIndex += pointCount * 3;
+  return inVec;
+}
