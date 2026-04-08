@@ -1,0 +1,34 @@
+Checks: >
+  readability-identifier-naming
+
+CheckOptions:
+  # Variables
+  - { key: readability-identifier-naming.VariableCase, value: camelBack }
+  - { key: readability-identifier-naming.LocalVariableCase, value: camelBack }
+
+  # Functions
+  - { key: readability-identifier-naming.FunctionCase, value: camelBack }
+
+  # Class names
+  - { key: readability-identifier-naming.ClassCase, value: CamelCase }
+
+  # Struct names
+  - { key: readability-identifier-naming.StructCase, value: CamelCase }
+
+  # Member variables
+  - { key: readability-identifier-naming.MemberCase, value: camelBack }
+  # - { key: readability-identifier-naming.MemberPrefix, value: m }
+
+  # Constants
+  #- { key: readability-identifier-naming.ConstantCase, value: UPPER_CASE }
+
+  # Private class members
+  - { key: readability-identifier-naming.PrivateMemberCase, value: CamelCase }
+  - { key: readability-identifier-naming.PrivateMemberPrefix, value: m }
+
+  # Static class members
+  - { key: readability-identifier-naming.ClassMemberCase, value: CamelCase }
+  - { key: readability-identifier-naming.ClassMemberPrefix, value: m }
+
+  # Namespaces
+  - { key: readability-identifier-naming.NamespaceCase, value: CamelCase }

@@ -1,0 +1,93 @@
+BasedOnStyle: LLVM
+
+# Indentation
+TabWidth: 2
+IndentWidth: 2
+UseTab: ForIndentation
+
+PointerAlignment: Left
+AccessModifierOffset: -2
+
+# Alignment
+AlignAfterOpenBracket: BlockIndent
+AlignConsecutiveAssignments: true
+AlignOperands: false
+AlignTrailingComments: Always
+
+# Allowance
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: true
+
+# I don't what to do with these :)
+AlwaysBreakBeforeMultilineStrings: false
+BinPackParameters: false
+
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterControlStatement: MultiLine
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+# Breaks
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Attach
+BreakBeforeTernaryOperators: false
+BreakStringLiterals: true
+BreakTemplateDeclarations: Yes
+
+# Other thingies
+ColumnLimit: 80
+CommentPragmas: ""
+PackConstructorInitializers: NextLine
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
+
+Cpp11BracedListStyle: true
+DerivePointerBinding: false
+
+IndentWrappedFunctionNames: true
+
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: All
+
+# Penalties
+PenaltyBreakBeforeFirstCallParameter: 100
+PenaltyBreakComment: 100
+PenaltyBreakFirstLessLess: 0
+PenaltyBreakString: 100
+PenaltyExcessCharacter: 1
+
+SortIncludes: CaseInsensitive
+
+# Spaces
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: Never
+SpacesInParensOptions:
+  InConditionalStatements: false
+  InCStyleCasts: false
+  InEmptyParentheses: false
+  Other: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceAfterTemplateKeyword: false
