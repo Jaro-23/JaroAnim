@@ -27,6 +27,10 @@ namespace JaroViewer {
 		virtual void updateData(ObjectData inputData);
 		ObjectData getOutputData() const;
 
+	protected:
+		ObjectData mInputData  = {glm::vec3(0.0f), glm::vec3(0.0f)};
+		ObjectData mOutputData = {glm::vec3(0.0f), glm::vec3(0.0f)};
+
 	private:
 		struct RegisterEntry {
 			uint ident;
@@ -38,8 +42,5 @@ namespace JaroViewer {
 
 		static std::map<std::string, RegisterEntry> mModifiers;
 		static uint mNextIdent;
-
-		ObjectData mInputData  = {glm::vec3(0.0f), glm::vec3(0.0f)};
-		ObjectData mOutputData = {glm::vec3(0.0f), glm::vec3(0.0f)};
 	};
 } // namespace JaroViewer
