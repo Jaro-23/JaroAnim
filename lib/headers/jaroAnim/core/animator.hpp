@@ -15,7 +15,7 @@ namespace JaroAnim {
 
 	class Animator {
 	public:
-		Animator(const std::string& windowTitle);
+		Animator(const std::string& windowTitle, const std::string& cubemap);
 		void run();
 
 		JaroViewer::EngineState* getState();

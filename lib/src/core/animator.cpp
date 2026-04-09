@@ -4,8 +4,9 @@
 
 using namespace JaroAnim;
 
-Animator::Animator(const std::string& windowTitle)
-  : mEngine(JaroViewer::EngineArgs{.windowTitle = windowTitle, .windowSamples = 16}) {
+Animator::Animator(const std::string& windowTitle, const std::string& cubemap)
+  : mEngine(JaroViewer::EngineArgs{.windowTitle = windowTitle, .windowSamples = 16, .cubemapParams = cubemap}
+    ) {
 	mEngine.setUpdateFunc([this](float delta) { this->update(delta); });
 }
 

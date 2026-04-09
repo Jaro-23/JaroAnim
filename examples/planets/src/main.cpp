@@ -1,10 +1,13 @@
+#include "jaroAnim/deformation/ffd.hpp"
+#include <iostream>
 #include <jaroAnim/core/animator.hpp>
+#include <memory>
 
 using namespace JaroAnim;
 using namespace JaroViewer;
 
 int main(int argc, char* argv[]) {
-	Animator animator{"JaroAnim demo"};
+	Animator animator{"JaroAnim demo", "./examples/planets/cubemap"};
 	JaroViewer::EngineState* state = animator.getState();
 
 	// Create material and object
@@ -21,12 +24,16 @@ int main(int argc, char* argv[]) {
 
 	// Place a backpack
 	Object obj = om.createObject("backpack");
-	obj->setScale(0.1f);
-	obj->setTranslation(glm::vec3(0.0f, 0.0f, -1.0f));
+	// obj->setScale(0.1f);
+	// obj->setTranslation(glm::vec3(0.0f, 0.0f, -1.0f));
+
+	// Add ffd
+	std::shared_ptr<FFD> ffd = std::make_shared<FFD>(&om, 4, 4, 4);
+	obj->addModifier(ffd);
 
 	glm::quat q = glm::quat(glm::radians(glm::vec3(0.0f, 0.0f, 0.0f)));
 	animator.registerAnimation(
-	  obj,
+	  ffd->getPoint(0, 0, 0),
 	  {Frame{.t = 0.0f, .position = glm::vec3(0.0f, 0.0f, -1.0f), .quaternion = q, .scale = glm::vec3(1.0f, 1.0f, 1.0f)},
 	   Frame{.t = 6.0f, .position = glm::vec3(2.0f, 0.0f, -3.0f), .quaternion = q, .scale = glm::vec3(1.0f, 1.0f, 1.0f)},
 	   Frame{.t = 12.0f, .position = glm::vec3(0.0f, 0.0f, -5.0f), .quaternion = q, .scale = glm::vec3(1.0f, 1.0f, 1.0f)},

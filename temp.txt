@@ -1,13 +1,66 @@
 vec3 ffd(vec3 inVec) {
-  float xSize = getDataFromVector(modifierData, modifierIndex);
-  float ySize = getDataFromVector(modifierData, modifierIndex + 1);
-  float zSize = getDataFromVector(modifierData, modifierIndex + 2);
-  
-  modifierIndex = modifierIndex + 3;
+  float x = getDataFromVector(modifierData, modifierIndex);
+  float y = getDataFromVector(modifierData, modifierIndex + 1);
+  float z = getDataFromVector(modifierData, modifierIndex + 2);
+  vec3 minP = vec3(x,y,z);
+  modifierIndex += 3;
 
-  // TODO: Apply ffd
-  
-  int pointCount = int(xSize) * int(ySize) * int(zSize);
+  x = getDataFromVector(modifierData, modifierIndex);
+  y = getDataFromVector(modifierData, modifierIndex + 1);
+  z = getDataFromVector(modifierData, modifierIndex + 2);
+  vec3 maxP = vec3(x,y,z);
+  modifierIndex += 3;
+
+  float xSize = int(getDataFromVector(modifierData, modifierIndex));
+  float ySize = int(getDataFromVector(modifierData, modifierIndex + 1));
+  float zSize = int(getDataFromVector(modifierData, modifierIndex + 2));
+  modifierIndex += 3;
+
+  // Normalize point into lattice space (0–1)
+  vec3 local = clamp((inVec - minP) / (maxP - minP), 0.0, 1.0);
+
+  // Scale to grid
+  vec3 gridPos = local * vec3(xSize - 1, ySize - 1, zSize - 1);
+
+  ivec3 base = ivec3(floor(gridPos));
+  vec3 frac = fract(gridPos);
+
+  vec3 result = vec3(0.0);
+
+  // Helper to fetch control point
+  vec3 getCP(int i, int j, int k) {
+    int idx = modifierIndex + ((k * ny * nx) + (j * nx) + i) * 3;
+    return vec3(
+      getDataFromVector(modifierData, idx),
+      getDataFromVector(modifierData, idx + 1),
+      getDataFromVector(modifierData, idx + 2)
+    );
+  }
+
+  // Trilinear interpolation
+  for (int dz = 0; dz <= 1; dz++) {
+    for (int dy = 0; dy <= 1; dy++) {
+      for (int dx = 0; dx <= 1; dx++) {
+
+        int ix = clamp(base.x + dx, 0, nx - 1);
+        int iy = clamp(base.y + dy, 0, ny - 1);
+        int iz = clamp(base.z + dz, 0, nz - 1);
+
+        vec3 cp = getCP(ix, iy, iz);
+
+        float wx = dx == 0 ? (1.0 - frac.x) : frac.x;
+        float wy = dy == 0 ? (1.0 - frac.y) : frac.y;
+        float wz = dz == 0 ? (1.0 - frac.z) : frac.z;
+
+        float w = wx * wy * wz;
+
+        result += cp * w;
+      }
+    }
+  }
+
+  int pointCount = xSize * ySize * zSize;
   modifierIndex += pointCount * 3;
-  return inVec;
+
+  return result;
 }
