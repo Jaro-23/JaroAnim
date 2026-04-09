@@ -25,7 +25,7 @@ namespace JaroViewer {
 	enum class TextureType { DIFFUSE, SPECULAR, NORMAL, HEIGHT };
 
 	struct Instance {
-		std::weak_ptr<RawObject> object;
+		ObjectRef object;
 		glm::mat4 model;
 		uint modifierStart;
 		uint modifierCount;

@@ -17,7 +17,8 @@ namespace JaroViewer {
 
 	enum ObjectEvent { MODIFIER, DELETE, TRANSFORM, VISIBILITY };
 
-	using Object = std::shared_ptr<class RawObject>;
+	using Object    = std::shared_ptr<class RawObject>;
+	using ObjectRef = std::weak_ptr<class RawObject>;
 	class RawObject : public EventSender<RawObject, ObjectEvent> {
 	public:
 		RawObject(glm::vec3 minPoint, glm::vec3 maxPoint);

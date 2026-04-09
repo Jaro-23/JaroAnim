@@ -98,7 +98,6 @@ JaroViewer::ModifierParams FFD::getParams() const {
 
 	for (const auto& obj : mPoints) {
 		const glm::vec3 pos = obj->getPosition();
-		if (obj == mPoints.at(0)) std::cout << pos.x << std::endl;
 		params.push_back(pos.x);
 		params.push_back(pos.y);
 		params.push_back(pos.z);

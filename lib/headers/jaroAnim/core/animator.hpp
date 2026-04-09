@@ -19,14 +19,14 @@ namespace JaroAnim {
 		void run();
 
 		JaroViewer::EngineState* getState();
-		void registerAnimation(JaroViewer::Object obj, const std::vector<Frame>& frames);
+		void registerAnimation(JaroViewer::ObjectRef obj, const std::vector<Frame>& frames);
 
 	private:
 		void update(float delta);
 
 		struct PathAnim {
 			Path path;
-			JaroViewer::Object obj;
+			JaroViewer::ObjectRef obj;
 			std::function<float(float)> speedFunc;
 			float startTime;
 			float duration;
