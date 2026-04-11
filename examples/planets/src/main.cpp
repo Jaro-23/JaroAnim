@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
 	// Add ffd
 	std::shared_ptr<FFD> ffd = std::make_shared<FFD>(&om, 4, 4, 4);
 	obj->addModifier(ffd);
+	ffd->bindToObject(obj);
 
 	glm::quat q = glm::quat(glm::radians(glm::vec3(0.0f, 0.0f, 0.0f)));
 	animator.registerAnimation(

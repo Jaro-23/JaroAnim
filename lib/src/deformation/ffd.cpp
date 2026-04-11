@@ -159,3 +159,12 @@ JaroViewer::Object FFD::getPoint(int x, int y, int z) {
 	if (x >= mXSize || y >= mYSize || z >= mZSize) return nullptr;
 	return mPoints.at(x + y * mXSize + z * mXSize * mYSize);
 }
+
+void FFD::bindToObject(JaroViewer::Object object) {
+	resetPoints();
+	glm::mat4 model = object->getModelMatrix();
+	for (auto& point : mPoints) {
+		point->setTranslation(glm::vec3(glm::vec4(point->getPosition(), 1.0f) * model));
+		object->addChild(point);
+	}
+}

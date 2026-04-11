@@ -14,6 +14,8 @@ namespace JaroAnim {
 		void updateData(JaroViewer::ObjectData inputData) override;
 		JaroViewer::Object getPoint(int x, int y, int z);
 
+		void bindToObject(JaroViewer::Object object);
+
 	private:
 		void resetPoints();
 		void recomputeBounds();
